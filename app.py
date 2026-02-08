@@ -110,6 +110,30 @@ def robots():
     return "User-agent: *\nAllow: /\n", 200, {"Content-Type": "text/plain"}
 
 
+@app.route("/sitemap.xml")
+def sitemap():
+    """Generate and serve sitemap.xml."""
+    # Base URL for Render or local
+    # In production, Render provides the URL, or we can use request.url_root
+    base_url = request.url_root.rstrip("/")
+    
+    errors = get_all_errors()
+    
+    xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    
+    # Home Page
+    xml += f'  <url>\n    <loc>{base_url}/</loc>\n    <priority>1.0</priority>\n  </url>\n'
+    
+    # Error Pages
+    for slug in errors:
+        xml += f'  <url>\n    <loc>{base_url}/error/{slug}</loc>\n    <priority>0.8</priority>\n  </url>\n'
+        
+    xml += '</urlset>'
+    
+    return xml, 200, {"Content-Type": "application/xml"}
+
+
 @app.route("/google11248a38b22a4624.html")
 def google_verification():
     """Serve GSC verification file."""
