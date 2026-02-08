@@ -110,6 +110,12 @@ def robots():
     return "User-agent: *\nAllow: /\n", 200, {"Content-Type": "text/plain"}
 
 
+@app.route("/google11248a38b22a4624.html")
+def google_verification():
+    """Serve GSC verification file."""
+    return "google-site-verification: google11248a38b22a4624.html", 200, {"Content-Type": "text/html"}
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     """Handle 404 errors."""
