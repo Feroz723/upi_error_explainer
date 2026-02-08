@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}{{ error.code }} Error Explained – What It Means & How to Fix It{% endblock %}
+
+{% block meta_description %}{{ error.explanation[:155] }}{% endblock %}
+
+{% block content %}
+<article class="error-explanation">
+    <header>
+        <h2>{{ error.code }}: {{ error.title }}</h2>
+        {% if ai_generated %}
+        <p class="ai-disclaimer">ℹ️ This explanation was generated automatically and may not be 100% accurate.</p>
+        {% endif %}
+        <p class="last-updated">Last updated: {{ last_updated }}</p>
+    </header>
+
+    <section class="explanation">
+        <h3>What does this mean?</h3>
+        <p>{{ error.explanation }}</p>
+    </section>
+
+    <section class="reasons">
+        <h3>Why did this happen?</h3>
+        <ul>
+            {% for reason in error.reasons %}
+            <li>{{ reason }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    {% if error.scenarios %}
+    <section class="scenarios">
+        <h3>When does this error usually occur?</h3>
+        <ul>
+            {% for scenario in error.scenarios %}
+            <li>{{ scenario }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% endif %}
+
+    <!-- Ad Placeholder -->
+    <div class="ad-placeholder">
+        <span class="ad-label">Sponsored</span>
+        <div class="ad-content">Advertisement</div>
+    </div>
+
+    <section class="next-steps">
+        <h3>What should I do next?</h3>
+        <ol>
+            {% for step in error.next_steps %}
+            <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+    </section>
+
+    <!-- Feedback Section -->
+    <div class="feedback-section">
+        <p>Was this helpful?</p>
+        <a href="{{ url_for('feedback', ok=1, error=slug) }}" class="feedback-btn feedback-yes">👍 Yes</a>
+        <a href="{{ url_for('feedback', ok=0, error=slug) }}" class="feedback-btn feedback-no">👎 No</a>
+    </div>
+</article>
+
+{% if error.aliases %}
+<section class="related-searches">
+    <h3>Related search queries</h3>
+    <ul class="alias-list">
+        {% for alias in error.aliases %}
+        <li>{{ alias }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+
+<!-- Affiliate Recommendations -->
+<section class="affiliate-section">
+    <h3>Helpful Apps & Services</h3>
+    <p class="affiliate-intro">You may find these helpful:</p>
+    <ul class="affiliate-list">
+        <li>
+            <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user"
+                rel="noopener" target="_blank">Google Pay</a> – Fast UPI payments with transaction history
+        </li>
+        <li>
+            <a href="https://play.google.com/store/apps/details?id=net.one97.paytm" rel="noopener"
+                target="_blank">Paytm</a> – UPI, wallet, and bill payments in one app
+        </li>
+        <li>
+            <a href="https://play.google.com/store/apps/details?id=in.org.npci.upiapp" rel="noopener"
+                target="_blank">BHIM</a> – Official NPCI app for secure UPI transactions
+        </li>
+    </ul>
+</section>
+
+<section class="related-errors">
+    <h3>Common UPI Errors</h3>
+    <ul>
+        {% for err_slug, err_data in related_errors.items() %}
+        <li>
+            <a href="{{ url_for('error_page', error_slug=err_slug) }}">
+                <strong>{{ err_data.code }}</strong> - {{ err_data.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+
+<nav class="back-link">
+    <a href="{{ url_for('index') }}">← Search another error</a>
+</nav>
+{% endblock %}

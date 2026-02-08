@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}UPI & Banking Error Explainer – Understand Failed Transactions{% endblock %}
+
+{% block meta_description %}Explain UPI and banking error codes in simple language. Learn why transactions fail and what
+to do next.{% endblock %}
+
+{% block content %}
+<section class="search-section">
+    <h2>What error did you get?</h2>
+    <p>Enter your UPI error code or paste the full error message below.</p>
+
+    <form action="{{ url_for('search') }}" method="POST" class="search-form">
+        <input type="text" id="error_input" name="error_input" placeholder="e.g., U28, XH, Transaction Failed..."
+            required autofocus>
+        <button type="submit">Explain This Error</button>
+    </form>
+</section>
+
+<!-- Ad Placeholder -->
+<div class="ad-placeholder">
+    <span class="ad-label">Sponsored</span>
+    <div class="ad-content">Advertisement</div>
+</div>
+
+<!-- SEO Content Block -->
+<section class="intro-content">
+    <h2>Understanding UPI & Banking Errors</h2>
+
+    <p>UPI (Unified Payments Interface) has revolutionized digital payments in India, enabling instant money transfers
+        between bank accounts. However, with over 10 billion monthly transactions, errors are common. When a transaction
+        fails, you typically see cryptic error codes like U28, U30, or XH – but what do they actually mean?</p>
+
+    <p>UPI errors occur for various reasons: insufficient funds, exceeded transaction limits, bank server downtime,
+        incorrect UPI IDs, or security blocks. Each error code corresponds to a specific issue identified by NPCI
+        (National Payments Corporation of India) or your bank. Understanding these codes helps you take the right action
+        quickly – whether that's waiting for a limit reset, checking your balance, or contacting your bank.</p>
+
+    <p>This free tool explains UPI and banking errors in plain English. Simply enter your error code or paste the full
+        error message, and we'll tell you exactly what went wrong, why it happened, and what you should do next. No
+        technical jargon, no confusion – just clear answers.</p>
+</section>
+
+<section class="common-errors">
+    <h2>Common UPI Errors</h2>
+    <ul>
+        {% for slug, error in errors.items() %}
+        <li>
+            <a href="{{ url_for('error_page', error_slug=slug) }}">
+                <strong>{{ error.code }}</strong> - {{ error.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

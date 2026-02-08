@@ -1,0 +1,275 @@
+{
+  "u28": {
+    "code": "U28",
+    "title": "Transaction Limit Exceeded",
+    "explanation": "You have crossed your daily UPI transaction limit set by your bank. Banks in India typically allow Rs 1-2 lakh per day depending on your account type.",
+    "reasons": [
+      "You exceeded the daily transaction limit",
+      "You exceeded the per-transaction limit",
+      "Your bank has a lower limit for your account type"
+    ],
+    "next_steps": [
+      "Wait until midnight for the limit to reset",
+      "Use a different bank account or payment method",
+      "Contact your bank to request a limit increase"
+    ],
+    "aliases": [
+      "upi transaction limit exceeded",
+      "daily upi limit reached",
+      "upi limit error",
+      "maximum transaction limit",
+      "upi daily limit crossed"
+    ],
+    "scenarios": [
+      "Error occurs when sending money multiple times in a day",
+      "Common during festival seasons or high usage days",
+      "Happens after multiple bill payments in one day"
+    ]
+  },
+  "u30": {
+    "code": "U30",
+    "title": "Debit Failed at Bank",
+    "explanation": "Your bank was unable to debit money from your account. This usually means there's an issue with your bank account or the bank's systems.",
+    "reasons": [
+      "Insufficient balance in your account",
+      "Account is frozen or inactive",
+      "Bank server is temporarily down"
+    ],
+    "next_steps": [
+      "Check your account balance",
+      "Ensure your bank account is active",
+      "Try again after some time",
+      "Contact your bank if the issue persists"
+    ],
+    "aliases": [
+      "upi debit failed",
+      "money not debited upi",
+      "bank debit failure",
+      "upi payment failed debit",
+      "amount not deducted"
+    ],
+    "scenarios": [
+      "Occurs when bank systems are under maintenance",
+      "Common during month-end when servers are busy",
+      "Happens if account has pending verification"
+    ]
+  },
+  "u16": {
+    "code": "U16",
+    "title": "Risk Threshold Exceeded",
+    "explanation": "Your transaction was flagged as potentially risky by the bank's security system. This is a safety measure to protect you from fraud.",
+    "reasons": [
+      "Unusual transaction amount or pattern",
+      "Transaction to a new or unverified recipient",
+      "Multiple failed attempts before this"
+    ],
+    "next_steps": [
+      "Wait for 24 hours and try again",
+      "Make a smaller transaction first",
+      "Contact your bank to whitelist the recipient"
+    ],
+    "aliases": [
+      "upi risk threshold",
+      "transaction flagged as risky",
+      "upi security block",
+      "suspicious transaction upi",
+      "fraud prevention block"
+    ],
+    "scenarios": [
+      "Triggered when sending large amounts to new contacts",
+      "Common after multiple wrong PIN attempts",
+      "Happens when transaction pattern differs from usual"
+    ]
+  },
+  "u67": {
+    "code": "U67",
+    "title": "Timeout - No Response from Bank",
+    "explanation": "The bank did not respond within the expected time. Your money is safe - if debited, it will be refunded within 24-48 hours.",
+    "reasons": [
+      "Bank server is slow or overloaded",
+      "Network connectivity issues",
+      "High traffic during peak hours"
+    ],
+    "next_steps": [
+      "Check your account - money may not have been debited",
+      "Wait for auto-refund if debited (usually 24-48 hours)",
+      "Avoid retrying immediately to prevent double payment"
+    ],
+    "aliases": [
+      "upi timeout error",
+      "upi transaction timeout",
+      "bank not responding upi",
+      "upi pending timeout",
+      "transaction timed out"
+    ],
+    "scenarios": [
+      "Common during salary days when bank traffic is high",
+      "Occurs frequently on 1st and 15th of month",
+      "Happens during evening peak hours 6-9 PM"
+    ]
+  },
+  "u69": {
+    "code": "U69",
+    "title": "Account Blocked or Frozen",
+    "explanation": "Your bank account is currently blocked or frozen for UPI transactions. This could be a temporary security measure.",
+    "reasons": [
+      "Account is under verification by the bank",
+      "KYC documents are pending or expired",
+      "Suspicious activity detected on the account"
+    ],
+    "next_steps": [
+      "Contact your bank branch immediately",
+      "Complete any pending KYC verification",
+      "Check for any SMS or email from your bank"
+    ],
+    "aliases": [
+      "upi account blocked",
+      "bank account frozen upi",
+      "upi disabled on account",
+      "account suspended upi",
+      "upi access blocked"
+    ],
+    "scenarios": [
+      "Occurs after multiple failed login attempts",
+      "Common if KYC has expired",
+      "Happens when account shows unusual activity"
+    ]
+  },
+  "xh": {
+    "code": "XH",
+    "title": "Invalid UPI Handle/ID",
+    "explanation": "The UPI ID you entered is either incorrect or does not exist. Please double-check the recipient's UPI address.",
+    "reasons": [
+      "Typo in the UPI ID",
+      "The UPI ID has been deactivated",
+      "Wrong format used (should be like name@bank)"
+    ],
+    "next_steps": [
+      "Verify the UPI ID with the recipient",
+      "Check for typos or extra spaces",
+      "Ask recipient for an alternative UPI ID"
+    ],
+    "aliases": [
+      "invalid upi id",
+      "wrong upi address",
+      "upi id not found",
+      "incorrect vpa",
+      "upi handle error"
+    ],
+    "scenarios": [
+      "Common when typing UPI ID manually",
+      "Occurs when recipient changed their UPI ID",
+      "Happens with old or unused UPI addresses"
+    ]
+  },
+  "zt": {
+    "code": "ZT",
+    "title": "Invalid Transaction Format",
+    "explanation": "The transaction details were not in the correct format required by the UPI system.",
+    "reasons": [
+      "App sent incorrect transaction data",
+      "Technical glitch in the UPI app",
+      "Outdated version of the payment app"
+    ],
+    "next_steps": [
+      "Update your UPI app to the latest version",
+      "Clear app cache and try again",
+      "Try a different UPI app"
+    ],
+    "aliases": [
+      "upi format error",
+      "invalid transaction format",
+      "upi technical error",
+      "transaction format invalid",
+      "upi system error"
+    ],
+    "scenarios": [
+      "Occurs with outdated app versions",
+      "Common after app updates with bugs",
+      "Happens when switching between apps mid-transaction"
+    ]
+  },
+  "bank-declined": {
+    "code": "BANK_DECLINED",
+    "title": "Transaction Declined by Bank",
+    "explanation": "Your bank has declined this transaction. This is a general rejection that can happen for various reasons.",
+    "reasons": [
+      "Insufficient funds in account",
+      "Transaction blocked by bank's fraud detection",
+      "Account restrictions or limits",
+      "Technical issues at the bank"
+    ],
+    "next_steps": [
+      "Check your account balance and status",
+      "Contact your bank's customer care",
+      "Try again after some time",
+      "Use a different payment method"
+    ],
+    "aliases": [
+      "bank declined transaction",
+      "payment declined by bank",
+      "upi rejected by bank",
+      "bank refused payment",
+      "transaction rejected"
+    ],
+    "scenarios": [
+      "Common with international bank accounts",
+      "Occurs when daily limits are reached",
+      "Happens with new or unverified accounts"
+    ]
+  },
+  "am04": {
+    "code": "AM04",
+    "title": "Insufficient Funds",
+    "explanation": "You don't have enough balance in your account to complete this transaction. Remember to account for any minimum balance requirements.",
+    "reasons": [
+      "Account balance is less than transaction amount",
+      "Minimum balance requirement not met",
+      "Pending transactions holding funds"
+    ],
+    "next_steps": [
+      "Add money to your account",
+      "Check for any pending/hold amounts",
+      "Reduce the transaction amount"
+    ],
+    "aliases": [
+      "insufficient balance upi",
+      "low balance error",
+      "not enough money upi",
+      "balance insufficient",
+      "upi low funds"
+    ],
+    "scenarios": [
+      "Common at end of month when balance is low",
+      "Occurs when minimum balance is blocked",
+      "Happens when EMI or auto-debit is pending"
+    ]
+  },
+  "b1": {
+    "code": "B1",
+    "title": "Beneficiary Bank Unavailable",
+    "explanation": "The recipient's bank is currently not responding or is under maintenance. Your money has not been deducted.",
+    "reasons": [
+      "Recipient's bank server is down",
+      "Scheduled maintenance at the bank",
+      "Network issues between banks"
+    ],
+    "next_steps": [
+      "Wait 15-30 minutes and try again",
+      "Ask recipient if their bank is facing issues",
+      "Try sending to a different account of the same person"
+    ],
+    "aliases": [
+      "beneficiary bank down",
+      "receiver bank unavailable",
+      "recipient bank error",
+      "payee bank not responding",
+      "destination bank offline"
+    ],
+    "scenarios": [
+      "Common during scheduled bank maintenance windows",
+      "Occurs frequently with smaller banks",
+      "Happens during system upgrades"
+    ]
+  }
+}

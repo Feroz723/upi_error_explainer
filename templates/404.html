@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Error Not Found – UPI Error Explainer{% endblock %}
+
+{% block meta_description %}The error code you searched for was not found. Try searching for a different UPI or banking
+error code.{% endblock %}
+
+{% block content %}
+<section class="not-found">
+    <h2>Error Not Found</h2>
+
+    {% if searched %}
+    <p>We couldn't find information about the error code you entered.</p>
+    <p>Please check the error code and try again. Make sure you're entering the exact code shown in your app (e.g., U28,
+        XH, AM04).</p>
+    {% else %}
+    <p>The page you're looking for doesn't exist.</p>
+    {% endif %}
+
+    <h3>Tips:</h3>
+    <ul>
+        <li>Check for typos in the error code</li>
+        <li>Try entering just the error code without extra text</li>
+        <li>Look for the error code in parentheses in your error message</li>
+    </ul>
+
+    <nav class="back-link">
+        <a href="{{ url_for('index') }}">← Go back to search</a>
+    </nav>
+</section>
+{% endblock %}
